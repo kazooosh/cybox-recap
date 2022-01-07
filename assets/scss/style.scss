@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border;
+}
+
+body,
+html {
+  @apply m-0 p-0 text-zinc-100 text-center;
+}
+
+.medal {
+  &-gold,
+  &-silver,
+  &-bronze {
+    @apply h-9 w-9 rounded-full bg-gradient-to-b drop-shadow-md border-2 text-center transition-transform text-zinc-100;
+
+    &:not(:first-of-type) {
+      @apply -ml-5;
+    }
+
+    &:hover {
+      @apply -translate-y-1;
+    }
+
+    span {
+      @apply text-xl text-center cursor-default;
+    }
+  }
+
+  &-gold {
+    @apply from-yellow-400 to-yellow-600 border-yellow-900/25;
+  }
+
+  &-silver {
+    @apply from-gray-300 to-gray-400 border-gray-900/25 text-gray-800;
+  }
+
+  &-bronze {
+    @apply from-amber-700 to-amber-900 border-amber-900/25;
+  }
+}
+
+.container {
+  @apply max-w-md mx-auto px-6 2xl:px-0 md:max-w-screen-xl;
+}
+
+section {
+  &:not(:last-of-type):not(:first-of-type) {
+    @apply relative pt-12 pb-6 border-double border-b-8 border-zinc-800 bg-gradient-to-b from-zinc-900 to-black/5;
+
+    &:after {
+      content: "";
+      @apply absolute left-0 top-0 h-full w-full opacity-0 z-[-1] bg-zinc-500 transition-all ease-in-out duration-500;
+    }
+
+    &:hover {
+      &:after {
+        @apply opacity-5;
+      }
+    }
+  }
+}
+
+h2 {
+  @apply uppercase text-4xl mb-5 font-semibold;
+}
+
+#c1 {
+  & > div {
+    @apply bg-gradient-to-t from-zinc-800 to-zinc-900/75;
+  }
+
+  & > button {
+    @apply absolute right-0 top-12 py-2 px-7 rounded-tl-lg rounded-bl-lg transition-all duration-500 bg-zinc-900 hover:bg-zinc-800;
+
+    svg {
+      @apply w-10;
+    }
+  }
+}
